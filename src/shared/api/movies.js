@@ -7,5 +7,9 @@ export const deleteMovie = (id) => {
 };
 
 export const addMovie = (data) => {
-  return instance.post('/movies', data);
+  return instance.post('/movies', data, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
 };

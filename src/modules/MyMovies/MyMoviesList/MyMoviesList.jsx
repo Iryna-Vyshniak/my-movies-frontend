@@ -4,7 +4,7 @@ console.log(REACT_APP_FILE_URL);
 
 const MyMoviesList = ({ items, onDeleteMovie }) => {
   const elements = items.map(({ _id, title, director, poster }) => (
-    <li className={styles.listItem} key={_id}>
+    <ul className={styles.listItem} key={_id}>
       <li className={styles.listItem} key={_id}>
         {poster && (
           <img
@@ -18,7 +18,7 @@ const MyMoviesList = ({ items, onDeleteMovie }) => {
       </li>
       Title: {title}. Director: {director}.{' '}
       <button onClick={() => onDeleteMovie(_id)}>delete</button>
-    </li>
+    </ul>
   ));
 
   return <ol className={styles.list}>{elements}</ol>;

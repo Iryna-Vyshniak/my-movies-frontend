@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import MyMoviesBlock from './MyMoviesBlock/MyBooksBlock';
-import MyMoviesList from './MyMoviesList/MyBooksList';
+import MyMoviesList from './MyMoviesList/MyMoviesList';
 import MyMoviesForm from './MyMoviesForm/MyMoviesForm';
 
 import { fetchMovies, addMovie, deleteMovie } from '../../redux/movies/movies-operations';

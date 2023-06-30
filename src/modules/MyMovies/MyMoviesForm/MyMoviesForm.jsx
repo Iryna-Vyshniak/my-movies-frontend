@@ -8,7 +8,17 @@ import initialState from './initialState';
 import styles from './my-books-form.module.scss';
 
 const MyMoviesForm = ({ onSubmit }) => {
-  const { state, handleChange, handleSubmit } = useForm({ initialState, onSubmit });
+  const { state, handleChange, reset } = useForm({ initialState, onSubmit });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // console.log(e.target);
+    // console.log(e.currentTarget);
+    const formData = new FormData(e.currentTarget);
+    formData.set('favorite', state.favorite);
+    onSubmit(formData);
+    reset();
+  };
 
   const { title, director, favorite, releaseDate } = state;
   return (
@@ -63,6 +73,10 @@ const MyMoviesForm = ({ onSubmit }) => {
           placeholder='Year'
           required
         />
+      </div>
+      <div className={styles.formGroup}>
+        <label>Poster</label>
+        <input name='poster' type='file' /* multiple */ />
       </div>
       <button type='submit'>Add movie</button>
     </form>

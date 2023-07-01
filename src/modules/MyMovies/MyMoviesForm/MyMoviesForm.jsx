@@ -13,14 +13,17 @@ const MyMoviesForm = ({ onSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(e.target);
-    // console.log(e.currentTarget);
     const formData = new FormData(e.currentTarget);
     formData.set('favorite', state.favorite);
+    // for (const [key, value] of formData.entries()) {
+    //   console.log(`${key}: ${value}`);
+    // }
     onSubmit(formData);
     reset();
   };
 
   const { title, director, favorite, releaseDate } = state;
+
   return (
     <form onSubmit={handleSubmit} className={styles.form} encType='multipart/form-data'>
       <div className={styles.formGroup}>
@@ -76,7 +79,7 @@ const MyMoviesForm = ({ onSubmit }) => {
       </div>
       <div className={styles.formGroup}>
         <label>Poster</label>
-        <input name='poster' type='file' /* multiple */ />
+        <input name='poster' type='file' />
       </div>
       <button type='submit'>Add movie</button>
     </form>
